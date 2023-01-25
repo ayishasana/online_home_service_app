@@ -1,0 +1,65 @@
+{% extends "admin/admin base.html" %}
+{% block content %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<div class="card" style="width: 55rem;">
+  <div class="card-body">
+    <h5 class="card-title">feedback data</h5>
+
+ <table class="table">
+  <thead>
+    <tr>
+        <th scope="col">SL</th>
+        <th scope="col">USER</th>
+      <th scope="col">FEEDBACK</th>
+      <th scope="col">DATE</th>
+      <th scope="col">REPLY</th>
+
+
+    </tr>
+  </thead>
+       <tbody>
+  {% for n in feedbacks %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{n.user}}</td>
+      <td>{{n.feedback}}</td>
+    <td>{{n.date}}</td>
+      <td>{% if n.reply == None %}
+          <a href = "{% url 'reply_feedback' n.id %}">Reply now</a>
+          {% else %}
+          {{n.reply}}
+      {% endif %}
+          </td>
+
+      {% empty %}
+  </tr>
+      <tr>
+      <td colspan="7"><h3>No Results Found</h3></td>
+      </tr>
+
+
+
+            {% endfor %}
+
+
+  </tbody>
+
+
+ </table>
+{% endblock %}
+
+  </div>
+</div>
+
+
+
+
+
+

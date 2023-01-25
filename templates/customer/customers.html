@@ -1,0 +1,22 @@
+{% extends "index1.html" %}
+{% block content %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+{%load crispy_forms_tags %}
+<form method="post">
+    {% csrf_token %}
+    {{ form1|crispy }}
+    {{ form2|crispy }}
+    <button type="submit" class="btn btn-primary">submit</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'customer/customerbase.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Pay Bill</h4>
+                  <form method="post">
+                      {% csrf_token %}
+                      <div class="d-grid gap-3 p-4">
+                          <label class="form-label">Card Number</label>
+                          <input required class="form-control" type="number" minlength="13" maxlength="16"  name="card_no"  id="card">
+                          <label class="form-label">CVV</label>
+                          <input required class="form-control" name="card_cvv" type="password" minlength="3" maxlength="3"  id="cvv">
+
+                          <label class="form-label">Month</label>
+                          <input required class="form-control" name="expiry_date" type="month"  id="example-month-input">
+
+
+                          <div class="d-grid gap-3 d-md-block">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+{% endblock %}

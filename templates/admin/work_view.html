@@ -1,0 +1,58 @@
+{% extends "admin/admin base.html" %}
+{% block content %}
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<div class="card" style="width: 55rem;">
+  <div class="card-body">
+    <h5 class="card-title">WORK VIEW</h5>
+
+ <table class="table">
+  <thead>
+    <tr>
+        <th scope="col">SL</th>
+        <th scope="col">NAME</th>
+      <th scope="col">CHARGE</th>
+      <th scope="col">UPDATE</th>
+      <th scope="col">DELETE</th>
+
+
+    </tr>
+  </thead>
+       <tbody>
+  {% for n in data %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{n.name}}</td>
+      <td>{{n.charge}}</td>
+      <td><a href="{% url 'update_work_view' n.id %}" class="btn btn-primary">Update</a></td>
+      <td><a href="{% url 'delete_work_view' n.id %}" class="btn btn-primary">Delete</a></td>
+
+
+
+
+
+
+            {% endfor %}
+
+
+  </tbody>
+
+
+ </table>
+{% endblock %}
+
+  </div>
+</div>
+
+
+
+
+
+

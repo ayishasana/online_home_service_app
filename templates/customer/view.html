@@ -1,0 +1,58 @@
+{% extends "customer/customerbase.html" %}
+{% block content %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+<div class="card" style="width: 55rem;">
+  <div class="card-body">
+    <h5 class="card-title">feedback data</h5>
+
+ <table class="table">
+  <thead>
+    <tr>
+        <th scope="col">SL</th>
+        <th scope="col">USER</th>
+      <th scope="col">FEEDBACK</th>
+      <th scope="col">DATE</th>
+      <th scope="col">REPLY</th>
+
+
+    </tr>
+  </thead>
+       <tbody>
+  {% for i in data %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{i.user}}</td>
+      <td>{{i.feedback}}</td>
+    <td>{{i.date}}</td>
+      <td>{% if i.reply == None %}
+      <p>No reply yet...</p>
+
+          {% else %}
+          {{i.reply}}
+      {% endif %}
+      </td>
+      <td><a href="{% url 'deletefeedback' i.id %}" class="btn btn-success">Delete</a></td>
+
+
+
+  </tr>
+            {% endfor %}
+
+
+  </tbody>
+
+
+ </table>
+{% endblock %}
+
+  </div>
+</div>

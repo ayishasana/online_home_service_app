@@ -1,0 +1,65 @@
+{% extends "customer/customerbase.html" %}
+{% block content %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<div class="card" style="width: 55rem;">
+  <div class="card-body">
+    <h5 class="card-title">PAYMENT</h5>
+
+ <table class="table">
+  <thead>
+    <tr>
+        <th scope="col">SL</th>
+        <th scope="col">CREDIT CARD</th>
+      <th scope="col">CVV</th>
+      <th scope="col">EXPIRY DATE</th>
+<!--      <th scope="col">END TIME</th>-->
+<!--        <th></th>-->
+<!--        <th scope="col">APPOINTMENT</th>-->
+
+
+
+    </tr>
+  </thead>
+       <tbody>
+  {% for n in customer_view_payment%}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{n.cvv}}</td>
+      <td>{{n.credit_card}}</td>
+    <td>{{n.expiry_date}}</td>
+<!--      <td>{{n.end_time}}</td>-->
+<!--      <td>{{n.appointment}}</td>-->
+<!--      <td><a href="{% url 'take_appointment' n.id %}" class="btn btn-danger">BOOK APPOINTMENT</a></td>-->
+
+      {% empty %}
+  </tr>
+      <tr>
+<!--      <td colspan="7"><h3>No Results Found</h3></td>-->
+      </tr>
+
+
+
+            {% endfor %}
+
+
+  </tbody>
+
+
+ </table>
+{% endblock %}
+
+  </div>
+</div>
+
+
+
+
+
+
